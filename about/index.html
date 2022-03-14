@@ -36,12 +36,20 @@
 </head>
 
 <body>
-  <nav>
-    <ul class="navul">
-      <li class="menubuttons links"><a href="../index.html">Home</a></li>
-      <li class="menubuttons links"><a href="../Contact/index.html">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="main-menu">
+    <div class="menu-icon">
+      <svg viewbox="0 0 60 60" width="60px" height="60px">
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+      </svg>
+    </div>
+    <nav>
+      <ul class="navul">
+        <li class="menubuttons links"><a href="../index.html">Home</a></li>
+        <li class="menubuttons links"><a href="../Contact/index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
   <main>
     <h1 class="title">About Me</h1>
     <div>
@@ -52,7 +60,13 @@
 
     </div>
   </main>
-
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+      });
+    });
+  </script>
 </body>
 
 </html>

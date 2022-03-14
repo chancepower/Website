@@ -32,24 +32,37 @@
 
 
 <body class="form">
+  <div class="main-menu">
+    <div class="menu-icon">
+      <svg viewbox="0 0 60 60" width="60px" height="60px">
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+      </svg>
+    </div>
+    <nav>
+      <ul class="navul">
+        <li class="links"><a href="../index.html">Home</a></li>
 
-  <nav>
-    <ul class="navul">
-      <li class="links"><a href="../index.html">Home</a></li>
+        <li class="links"><a href="../about/index.html">About</a></li>
+        <li class="links"> <a href="../Contact/index.html">Contact</a>
 
-      <li class="links"><a href="../about/index.html">About</a></li>
-      <li class="links"> <a href="../Contact/index.html">Contact</a>
+      </ul>
 
-    </ul>
-
-  </nav>
+    </nav>
+  </div>
   <main>
     <h1 class="survey">Survey</h1>
     <img id="img1" src="../images/C8cnsH01.svg" alt="This is an SVG">
     <div class="loader"></div>
   </main>
 
-
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+      });
+    });
+  </script>
 </body>
 
 </html>

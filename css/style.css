@@ -135,6 +135,103 @@ a {
 }
 .pannel .left {
 }
+/* CSS for SVG */
+.menu-show nav {
+  transform: translateX(0);
+}
+
+.main-menu .menu-icon {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.main-menu svg {
+  stroke: black;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  padding: 12px;
+}
+
+.main-menu svg line {
+  transform-origin: center;
+  transition: transform 200ms ease;
+}
+
+.main-menu svg line:first-child {
+  transform: translateY(8px);
+}
+
+.main-menu svg line:last-child {
+  transform: translateY(-8px);
+}
+
+.menu-show .menu-icon {
+  background-color: white;
+}
+
+.menu-show svg line {
+  stroke: black;
+  stroke-width: 5px;
+}
+
+.menu-show svg line:first-child {
+  transform: rotate(135deg);
+}
+
+.menu-show svg line:last-child {
+  transform: rotate(-135deg);
+}
+/* CLOSED CSS FOR SVG */
+
+/* CSS FOR MENU */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: white;
+  transform: translateX(-100vw);
+  transition: transform 400ms ease;
+}
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 80rem;
+}
+
+nav a {
+  display: block;
+  padding: 1rem;
+  font-size: 1.4rem;
+  color: black;
+}
+
+nav a:not([href]) {
+  color: silver;
+}
+
+nav a[href]:hover {
+  color: gray;
+}
+
+/* CSS FOR MENU CLOSED */
+
 .articlebutton {
   margin-top: 4rem;
 }
@@ -357,5 +454,60 @@ figcaption {
   }
   .pannel .left {
     order: -1;
+  }
+  .main-menu .menu-icon {
+    display: none;
+  }
+  .hero {
+    margin-bottom: 0;
+  }
+  nav {
+    position: static;
+    display: block;
+    transform: none;
+    background-color: transparent;
+    margin: 2rem 1.5rem 6rem;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0 auto;
+
+    max-width: 80rem;
+  }
+
+  nav a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.4rem;
+    color: black;
+  }
+
+  nav a:not([href]) {
+    color: silver;
+  }
+
+  nav a::after {
+    content: "";
+    display: block;
+    width: calc(100% + 12px);
+    height: 3px;
+    margin-left: -6px;
+    margin-top: 6px;
+    background-color: white;
+    transform: scale(0);
+    transition: transform 200ms ease-in, color 300ms ease-in;
+    transform-origin: right;
+  }
+
+  nav a[href]:hover {
+    color: gray;
+  }
+
+  nav a[href]:hover::after {
+    transform: scale(1);
+    transform-origin: left;
   }
 }

@@ -23,15 +23,29 @@
 </head>
 
 <body>
-  <nav>
-    <ul class="navul">
-      <li class="links"><a href="../index.html">Go Home</a></li>
-    </ul>
-  </nav>
+  <div class="main-menu">
+    <div class="menu-icon">
+      <svg viewbox="0 0 60 60" width="60px" height="60px">
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+      </svg>
+    </div>
+    <nav>
+      <ul class="navul">
+        <li class="links"><a href="../index.html">Go Home</a></li>
+      </ul>
+    </nav>
+  </div>
   <div><img class="resumepdf" src="../images/resume.jpg" alt=""></div>
   <div class="downloadbutton"><button class="button">Download</button></div>
 
-
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+      });
+    });
+  </script>
 </body>
 
 </html>
