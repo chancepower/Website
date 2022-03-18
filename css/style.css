@@ -36,9 +36,8 @@ h1 {
 }
 a:hover {
   color: gray;
-  border: black solid;
-  transition: 200ms border ease-in-out;
-  font-size: 22px;
+  box-shadow: 0 0 0 2px black;
+  transition: 200ms box-shadow ease-in-out;
 }
 .button {
   display: flex;
@@ -60,7 +59,8 @@ a {
   text-decoration: none;
 }
 main {
-  margin: 0 auto;
+  align-self: center;
+
   padding: 0 1rem;
   max-width: 60rem;
   margin-top: 25px;
@@ -257,9 +257,8 @@ aside {
 }
 .cards {
   display: flex;
-  flex-direction: column;
+
   gap: 10px;
-  justify-content: space-evenly;
 }
 
 .cards p {
@@ -290,6 +289,7 @@ aside {
 }
 figure {
   width: 100%;
+  margin: 0;
 }
 .cards p {
   font-size: 1rem;
@@ -353,7 +353,6 @@ figure {
 }
 
 .loader {
-  position: absolute;
   bottom: 30px;
   right: 45%;
   border-radius: 30%;
@@ -412,7 +411,7 @@ figcaption {
     padding-bottom: 2rem;
   }
   .card {
-    flex: 1 1 50%;
+    flex: 1 1 40%;
   }
 }
 
@@ -423,7 +422,6 @@ figcaption {
   }
 
   .card {
-    flex: 1 1 40%;
   }
 }
 
@@ -433,7 +431,6 @@ figcaption {
   }
 
   .card {
-    flex: 0 1 20%;
   }
 }
 
@@ -487,19 +484,6 @@ figcaption {
 
   nav a:not([href]) {
     color: silver;
-  }
-
-  nav a::after {
-    content: "";
-    display: block;
-    width: calc(100% + 12px);
-    height: 3px;
-    margin-left: -6px;
-    margin-top: 6px;
-    background-color: white;
-    transform: scale(0);
-    transition: transform 200ms ease-in, color 300ms ease-in;
-    transform-origin: right;
   }
 
   nav a[href]:hover {
