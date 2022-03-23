@@ -257,8 +257,9 @@ aside {
 }
 .cards {
   display: flex;
-
   gap: 10px;
+  flex-direction: column;
+  padding: 0 1rem;
 }
 
 .cards p {
@@ -403,37 +404,6 @@ figcaption {
   }
 }
 
-@media (min-width: 400px) {
-  .cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 2rem;
-    padding-bottom: 2rem;
-  }
-  .card {
-    flex: 1 1 40%;
-  }
-}
-
-@media (min-width: 800px) {
-  .cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .card {
-  }
-}
-
-@media (min-width: 1200px) {
-  .cards {
-    flex-wrap: nowrap;
-  }
-
-  .card {
-  }
-}
-
 @media (min-width: 600px) {
   .pannel {
     flex-direction: row;
@@ -493,5 +463,36 @@ figcaption {
   nav a[href]:hover::after {
     transform: scale(1);
     transform-origin: left;
+  }
+}
+
+@media (min-width: 400px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem;
+    padding-bottom: 2rem;
+  }
+  .card {
+    flex: 1 1 40%;
+  }
+}
+
+@media (min-width: 800px) {
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards {
+    flex-wrap: nowrap;
+  }
+
+  .card {
   }
 }
