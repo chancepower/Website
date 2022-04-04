@@ -51,18 +51,162 @@
     </nav>
   </div>
   <main>
-    <h1 class="survey">Survey</h1>
-    <img id="img1" src="../images/C8cnsH01.svg" alt="This is an SVG">
-    <div class="loader"></div>
-  </main>
+    <div class="wrapper">
+      <h1 class="survey">Survey</h1>
 
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      document.querySelector(".menu-icon").addEventListener("click", () => {
-        document.querySelector(".main-menu").classList.toggle("menu-show");
-      });
-    });
-  </script>
+
+      <section>
+        <h2>Let's Chat</h2>
+        <img id="img1" src="../images/C8cnsH01.svg" alt="This is an SVG">
+        <p class="success-message hidden">Thank you for your input</p>
+        <p class="error-message hidden">Something has gone wrong and your information cannot be submitted</p>
+        <form name="ibis">
+
+          <label for="name">Full name</label>
+
+
+          <input type="text" name="name" id="name" required>
+
+
+          <label for="email">Email address</label>
+          <input type="email" name="email" id="email" required>
+
+          <label for="phone">Phone number</label>
+          <input type="tel" name="phone" id="phone" required>
+
+          <label for="month">Today's Date</label>
+          <input type="month" name="month" id="month">
+
+          <fieldset>
+            <legend>Which of the following would you like to do? (Check all that apply)</legend>
+
+
+            <input type="checkbox" id="wombat" name="contact" value="wombat">
+            <label for="wombat">Lunch</label>
+
+            <input type="checkbox" id="kiwi-feet" name="contact" value="kiwi-feet">
+            <label for="kiwi-feet">Zoom Call</label>
+
+            <input type="checkbox" id="eucalyptus" name="contact" value="eucalyptus">
+            <label for="eucalyptus">Phone Call</label>
+
+
+
+            <input type="checkbox" id="kanga" name="contact" value="kanga-claw">
+            <label for="kanga">Coffee Chat</label>
+
+          </fieldset>
+
+          <fieldset>
+            <legend>What days work for you?</legend>
+
+            <input type="radio" name="days" id="asphalt" value="asphalt">
+            <label for="asphalt">Weekdays</label>
+
+            <input type="radio" name="days" id="tar" value="tar">
+            <label for="tar">Weekends</label>
+
+
+          </fieldset>
+
+
+          <label for="haiku">Any other information you would like me to know. </label>
+          <textarea name="haiku" id="haiku" rows="10" placeholder="Write me something!"></textarea>
+
+
+          <button type="submit">Submit Now</button>
+
+        </form>
+      </section>
+      <script>
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycby0hS6J5pqqbgWTMgGnzaAdwzbmtzSZiFkYQ1l4oXMkLQBOBIErksofWTbOlIVvFZTKKQ/exec"
+
+        // enter the URL for your Google Sheet 
+        const scriptURL =
+          'https://script.google.com/macros/s/AKfycbxCzIq9YxD1uSZA9N0aVzKh5DSznQtfnnChhAd0ZcF2xdDUa1E/exec'
+
+        // add a name attribute to your <form> and enter its value here 
+        const form = document.forms['ibis']
+
+        // enter the value of your checkboxes' name attribute
+        const checkboxName = "attributes"
+
+        // set these to your loader and message classes
+        const loading = document.querySelector('.loading')
+        const successMessage = document.querySelector('.success-message')
+        const errorMessage = document.querySelector('.error-message')
+
+        // this will run when the submit button is clicked
+        form.addEventListener('submit', event => {
+          // stops default form handling so we can submit it to Google Sheets instead
+          event.preventDefault()
+
+          // show the loader and hide form
+          form.classList.add('hidden')
+          loading.classList.remove('hidden')
+
+          // collect the form values into an object that can be sent to Google Sheets
+          let fd = new FormData(form);
+
+          /* If more than one checkbox is selected, the form will have multiple keys 
+             (checkbox name). Only the first checkbox value would be entered into 
+             Google Sheets. 
+             To get around this, concat all the selected checkbox values into a single 
+             string and send that value */
+
+          // grab all the selected values stored as key/value pairs of checkboxName/value
+          let checkBoxValues = fd.getAll(checkboxName)
+
+          // then delete them from the formData object
+          fd.delete(checkboxName);
+
+          // create a string
+          let text = ""
+          if (checkBoxValues.length <= 2) {
+            text = checkBoxValues.join(" and ")
+          } else {
+            let end = checkBoxValues.pop();
+            text = checkBoxValues.join(", ");
+            text += ", and " + end;
+          }
+          // add the key/value pair checkboxName/text back to the formData object
+          fd.append(checkboxName, text);
+
+          // use an asynchronous request to POST your formData object to your Google Sheet
+          fetch(scriptURL, {
+              method: 'POST',
+              body: fd,
+            })
+            // if response ok, show success message and hide loader, else display error
+            .then(response => {
+              loading.classList.add('hidden')
+              if (response.ok) {
+                console.log('Success!', response)
+                successMessage.classList.remove('hidden')
+              } else {
+                console.log("Something has gone terribly wrong and I'm rather afraid I don't know what to do.",
+                  response)
+                errorMessage.classList.remove('hidden')
+              }
+            })
+            // if error, show error message and hide loader
+            .catch(error => {
+              console.error('Error!', error.message)
+              errorMessage.classList.remove('hidden')
+              loading.classList.add('hidden')
+            })
+        })
+
+
+
+        window.addEventListener("DOMContentLoaded", () => {
+          document.querySelector(".menu-icon").addEventListener("click", () => {
+            document.querySelector(".main-menu").classList.toggle("menu-show");
+          });
+        });
+      </script>
+    </div>
 </body>
 
 </html>
