@@ -20,7 +20,12 @@
   max-width: min-content;
   justify-self: center;
 }
-
+.skatefooter {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  font-size: 15px;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -343,6 +348,7 @@ figure {
   opacity: 0;
   transition: opacity 300ms ease-in;
 }
+
 video {
   display: block;
   width: 100%;
@@ -402,15 +408,22 @@ video {
 figcaption {
   font-size: 10px;
 }
-.resumepdf {
+.resume {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+.resumepdf {
   border: rgba(0, 0, 0, 0.6) solid 1px;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
 }
 .downloadbutton {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  padding-bottom: 3rem;
 }
 .navul {
   display: flex;

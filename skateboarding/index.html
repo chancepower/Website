@@ -5,21 +5,80 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100&family=Roboto:wght@100&family=Rowdies&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
   <title>Document</title>
 </head>
 
 <body>
-  <h1>Skateboarding</h1>
-  <p>At the age of 6 years old I started skateboarding and it was probably the best thing to happen to me. I remember it
-    vividly. My Dad got me a skateboard for my 6th birthday and I can remember riding it in the garage of our new house.
-    Two years later for Christmas my Dad built me a half-pipe in our backyard. It was a skater's dream. I spent
-    thousands of hours out on that ramp. At age 8 I entered my first competition at the local skate park. I had
-    aspirations to win it, but my skills were not at the level that they needed to be at. Over the next year I devoted
-    myself to skateboarding in order to do better in the contest the next year. By the time that the contest came around
-    I got 1st place and it started my addiction. From there on I started to skateboard at a competitive level. I was
-    doing so many contests and I was winning the majority of them. I was competing against kids that would go on to
-    skate board in the olympics. I loved it.
-  </p>
+  <div class="main-menu">
+    <div class="menu-icon">
+      <svg viewbox="0 0 60 60" width="60px" height="60px">
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+        <line x1="5%" y1="50%" x2="95%" y2="50%" />
+      </svg>
+    </div>
+    <nav>
+      <ul class="navul">
+        <li class="links"><a href="../index.html">Take me home</a></li>
+      </ul>
+    </nav>
+  </div>
+  <main>
+    <h1>Skateboarding</h1>
+    <hr>
+    <p>At the age of 6 years old I started skateboarding and it was probably the best thing to happen to me. I remember
+      it
+      vividly. My Dad got me a skateboard for my 6th birthday and I can remember riding it in the garage of our new
+      house.
+      Two years later for Christmas my Dad built me a half-pipe in our backyard. It was a skater's dream. I spent
+      thousands of hours out on that ramp. At age 8 I entered my first competition at the local skate park. I had
+      aspirations to win it, but my skills were not at the level that they needed to be at. Over the next year I devoted
+      myself to skateboarding in order to do better in the contest the next year. By the time that the contest came
+      around
+      I got 1st place and it started my addiction. From there on I started to skateboard at a competitive level. I was
+      doing so many contests and I was winning the majority of them. I was competing against kids that would go on to
+      skate board in the olympics. I loved it.
+    </p>
+    <div class="readingwrapper"> <img class="bookreading" src="../images/skateboardingello.JPG"
+        alt="A picture of me skateboarding"></div>
+    <p>After 4 years of skating and training I started to get burnt out. I felt myself not enjoying it anymore and I
+      just felt a lot of pressure. I had many long periods in my life when I would not skateboard. Eventually I found
+      out that when I felt stressed in life skateboarding is what helped me to feel better. I still continue to
+      skateboard today, but not at the competitive level that I used to. Many opportunities have come to me in life
+      through skating including skateboarding for company's marketing campaigns. </p>
+    <div class="readingwrapper"> <img class="bookreading" src="../images/skatingapool.jpg"
+        alt="A picture of me skating a pool in Provo"></div>
+    <div class="readingwrapper"> <img class="bookreading" src="../images/drainingpool.jpg"
+        alt="A picture of me skateboarding"></div>
+    <div class="readingwrapper"> <img class="bookreading" src="../images/thread.jpg"
+        alt="A picture of me skateboarding"></div>
+
+  </main>
+  <footer>
+    <p class="skatefooter">If you ever want to skate with me just fill out my form with your information
+      information</p>
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+      });
+    });
+  </script>
 </body>
 
 </html>
