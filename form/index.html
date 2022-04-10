@@ -60,7 +60,7 @@
         <img id="img1" src="../images/C8cnsH01.svg" alt="This is an SVG">
         <p class="success-message hidden">Thank you for your input</p>
         <p class="error-message hidden">Something has gone wrong and your information cannot be submitted</p>
-        <form name="ibis">
+        <form name="form">
 
           <label for="name">Full name</label>
 
@@ -118,19 +118,17 @@
 
         </form>
       </section>
-      <script>
-        const scriptURL =
-          "https://script.google.com/macros/s/AKfycby0hS6J5pqqbgWTMgGnzaAdwzbmtzSZiFkYQ1l4oXMkLQBOBIErksofWTbOlIVvFZTKKQ/exec"
 
+      <script>
         // enter the URL for your Google Sheet 
         const scriptURL =
-          'https://script.google.com/macros/s/AKfycbxCzIq9YxD1uSZA9N0aVzKh5DSznQtfnnChhAd0ZcF2xdDUa1E/exec'
+          "https://script.google.com/macros/s/AKfycbyKpBJLWirvbwpegS0hAjQFZf21AhpYJUCaE-w8OMCGTDSrNuuq5WJPS0lV3hE8dFXx0g/exec"
 
         // add a name attribute to your <form> and enter its value here 
-        const form = document.forms['ibis']
+        const form = document.forms['form']
 
         // enter the value of your checkboxes' name attribute
-        const checkboxName = "attributes"
+        const checkboxName = "contact"
 
         // set these to your loader and message classes
         const loading = document.querySelector('.loading')
@@ -197,6 +195,7 @@
               loading.classList.add('hidden')
             })
         })
+
 
 
 
