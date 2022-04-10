@@ -529,14 +529,6 @@ input[type="checkbox"]:checked::after {
   animation: spinner 4s linear infinite;
 }
 
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 readingmain {
   display: flex;
   flex-direction: column;
@@ -606,28 +598,15 @@ input[type="radio"]::after {
   display: block;
   grid-area: 1 / 1 / 2 / 2;
 }
-
-@media (min-width: 500px) {
-  form {
-    grid-template-columns: max-content 1fr;
-    grid-column-gap: 0.5rem;
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
   }
-  form > label {
-    justify-self: end;
-  }
-  label[for="haiku"] {
-    justify-self: start;
-  }
-  fieldset,
-  label[for="haiku"],
-  textarea,
-  button {
-    grid-column-start: 2;
-  }
-  button {
-    justify-self: start;
+  100% {
+    transform: rotate(360deg);
   }
 }
+
 @keyframes load {
   0% {
     transform: rotate(0deg);
@@ -698,6 +677,28 @@ input[type="radio"]::after {
   nav a[href]:hover::after {
     transform: scale(1);
     transform-origin: left;
+  }
+}
+
+@media (min-width: 601px) {
+  form {
+    grid-template-columns: max-content 1fr;
+    grid-column-gap: 0.5rem;
+  }
+  form > label {
+    justify-self: end;
+  }
+  label[for="haiku"] {
+    justify-self: start;
+  }
+  fieldset,
+  label[for="haiku"],
+  textarea,
+  button {
+    grid-column-start: 2;
+  }
+  button {
+    justify-self: start;
   }
 }
 @media (min-width: 700px) {
