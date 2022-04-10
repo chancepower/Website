@@ -81,18 +81,18 @@
             <legend>Which of the following would you like to do? (Check all that apply)</legend>
 
 
-            <input type="checkbox" id="wombat" name="contact" value="wombat">
+            <input type="checkbox" id="wombat" name="contact" value="Lunch">
             <label for="wombat">Lunch</label>
 
-            <input type="checkbox" id="kiwi-feet" name="contact" value="kiwi-feet">
+            <input type="checkbox" id="kiwi-feet" name="contact" value="Zoom-Call">
             <label for="kiwi-feet">Zoom Call</label>
 
-            <input type="checkbox" id="eucalyptus" name="contact" value="eucalyptus">
+            <input type="checkbox" id="eucalyptus" name="contact" value="Phone-Call">
             <label for="eucalyptus">Phone Call</label>
 
 
 
-            <input type="checkbox" id="kanga" name="contact" value="kanga-claw">
+            <input type="checkbox" id="kanga" name="contact" value="coffee-chat">
             <label for="kanga">Coffee Chat</label>
 
           </fieldset>
@@ -100,10 +100,10 @@
           <fieldset>
             <legend>What days work for you?</legend>
 
-            <input type="radio" name="days" id="asphalt" value="asphalt">
+            <input type="radio" name="days" id="asphalt" value="weekdays">
             <label for="asphalt">Weekdays</label>
 
-            <input type="radio" name="days" id="tar" value="tar">
+            <input type="radio" name="days" id="tar" value="weekends">
             <label for="tar">Weekends</label>
 
 
@@ -118,11 +118,13 @@
 
         </form>
       </section>
-
+      <div class="loading hidden">
+        <div class="loader"></div>
+      </div>
       <script>
         // enter the URL for your Google Sheet 
         const scriptURL =
-          "https://script.google.com/macros/s/AKfycbyKpBJLWirvbwpegS0hAjQFZf21AhpYJUCaE-w8OMCGTDSrNuuq5WJPS0lV3hE8dFXx0g/exec"
+          "https://script.google.com/macros/s/AKfycbwEw0P_Y839BYUwG-O1KYIjw1ve9QmlVahZvV2Ciw/exec"
 
         // add a name attribute to your <form> and enter its value here 
         const form = document.forms['form']
