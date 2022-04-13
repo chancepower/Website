@@ -260,8 +260,38 @@ nav a[href]:hover {
 .articlebutton1 {
   margin-top: 4rem;
 }
-.accomplishments {
+.contactsz {
+  width: 100;
+  height: 20vw;
+}
+.contactspacerr {
   padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.accomplishments {
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+  padding-right: 8rem;
+  padding-left: 8rem;
+}
+.centerr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.footerz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.footerz p {
+  font-size: 12px;
+}
+.spacer {
+  padding-top: 4rem;
   padding-bottom: 5rem;
 }
 .contactmeh {
@@ -382,7 +412,7 @@ video {
 }
 
 .form {
-  background-color: lightblue;
+  background-color: #eee;
 }
 
 .loader {
@@ -480,7 +510,7 @@ button {
 }
 
 button {
-  justfiy-self: center;
+  justify-self: center;
 }
 
 input:hover,
@@ -528,7 +558,22 @@ input[type="checkbox"]:checked::after {
   height: 200px;
   animation: spinner 4s linear infinite;
 }
-
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+.titlex {
+  padding-bottom: 1rem;
+}
+.goalss {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+}
 readingmain {
   display: flex;
   flex-direction: column;
