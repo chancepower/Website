@@ -33,7 +33,9 @@
 
 
 
-< class="form">
+<body class="form">
+
+
 
 
   <div class="main-menu">
@@ -123,97 +125,98 @@
         </form>
       </section>
 
-  </main>
-  <div class="loading hidden">
-    <div class="loader"></div>
-  </div>
-  <script>
-    // enter the URL for your Google Sheet 
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwEw0P_Y839BYUwG-O1KYIjw1ve9QmlVahZvV2Ciw/exec"
 
-    // add a name attribute to your <form> and enter its value here 
-    const form = document.forms['form']
+      <div class="loading hidden">
+        <div class="loader"></div>
+      </div>
+      <script>
+        // enter the URL for your Google Sheet 
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbwEw0P_Y839BYUwG-O1KYIjw1ve9QmlVahZvV2Ciw/exec"
 
-    // enter the value of your checkboxes' name attribute
-    const checkboxName = "contact"
+        // add a name attribute to your <form> and enter its value here 
+        const form = document.forms['form']
 
-    // set these to your loader and message classes
-    const loading = document.querySelector('.loading')
-    const successMessage = document.querySelector('.success-message')
-    const errorMessage = document.querySelector('.error-message')
+        // enter the value of your checkboxes' name attribute
+        const checkboxName = "contact"
 
-    // this will run when the submit button is clicked
-    form.addEventListener('submit', event => {
-      // stops default form handling so we can submit it to Google Sheets instead
-      event.preventDefault()
+        // set these to your loader and message classes
+        const loading = document.querySelector('.loading')
+        const successMessage = document.querySelector('.success-message')
+        const errorMessage = document.querySelector('.error-message')
 
-      // show the loader and hide form
-      form.classList.add('hidden')
-      loading.classList.remove('hidden')
+        // this will run when the submit button is clicked
+        form.addEventListener('submit', event => {
+          // stops default form handling so we can submit it to Google Sheets instead
+          event.preventDefault()
 
-      // collect the form values into an object that can be sent to Google Sheets
-      let fd = new FormData(form);
+          // show the loader and hide form
+          form.classList.add('hidden')
+          loading.classList.remove('hidden')
 
-      /* If more than one checkbox is selected, the form will have multiple keys 
-         (checkbox name). Only the first checkbox value would be entered into 
-         Google Sheets. 
-         To get around this, concat all the selected checkbox values into a single 
-         string and send that value */
+          // collect the form values into an object that can be sent to Google Sheets
+          let fd = new FormData(form);
 
-      // grab all the selected values stored as key/value pairs of checkboxName/value
-      let checkBoxValues = fd.getAll(checkboxName)
+          /* If more than one checkbox is selected, the form will have multiple keys 
+             (checkbox name). Only the first checkbox value would be entered into 
+             Google Sheets. 
+             To get around this, concat all the selected checkbox values into a single 
+             string and send that value */
 
-      // then delete them from the formData object
-      fd.delete(checkboxName);
+          // grab all the selected values stored as key/value pairs of checkboxName/value
+          let checkBoxValues = fd.getAll(checkboxName)
 
-      // create a string
-      let text = ""
-      if (checkBoxValues.length <= 2) {
-        text = checkBoxValues.join(" and ")
-      } else {
-        let end = checkBoxValues.pop();
-        text = checkBoxValues.join(", ");
-        text += ", and " + end;
-      }
-      // add the key/value pair checkboxName/text back to the formData object
-      fd.append(checkboxName, text);
+          // then delete them from the formData object
+          fd.delete(checkboxName);
 
-      // use an asynchronous request to POST your formData object to your Google Sheet
-      fetch(scriptURL, {
-          method: 'POST',
-          body: fd,
-        })
-        // if response ok, show success message and hide loader, else display error
-        .then(response => {
-          loading.classList.add('hidden')
-          if (response.ok) {
-            console.log('Success!', response)
-            successMessage.classList.remove('hidden')
+          // create a string
+          let text = ""
+          if (checkBoxValues.length <= 2) {
+            text = checkBoxValues.join(" and ")
           } else {
-            console.log("Something has gone terribly wrong and I'm rather afraid I don't know what to do.",
-              response)
-            errorMessage.classList.remove('hidden')
+            let end = checkBoxValues.pop();
+            text = checkBoxValues.join(", ");
+            text += ", and " + end;
           }
+          // add the key/value pair checkboxName/text back to the formData object
+          fd.append(checkboxName, text);
+
+          // use an asynchronous request to POST your formData object to your Google Sheet
+          fetch(scriptURL, {
+              method: 'POST',
+              body: fd,
+            })
+            // if response ok, show success message and hide loader, else display error
+            .then(response => {
+              loading.classList.add('hidden')
+              if (response.ok) {
+                console.log('Success!', response)
+                successMessage.classList.remove('hidden')
+              } else {
+                console.log("Something has gone terribly wrong and I'm rather afraid I don't know what to do.",
+                  response)
+                errorMessage.classList.remove('hidden')
+              }
+            })
+            // if error, show error message and hide loader
+            .catch(error => {
+              console.error('Error!', error.message)
+              errorMessage.classList.remove('hidden')
+              loading.classList.add('hidden')
+            })
         })
-        // if error, show error message and hide loader
-        .catch(error => {
-          console.error('Error!', error.message)
-          errorMessage.classList.remove('hidden')
-          loading.classList.add('hidden')
-        })
-    })
 
 
 
 
-    window.addEventListener("DOMContentLoaded", () => {
-      document.querySelector(".menu-icon").addEventListener("click", () => {
-        document.querySelector(".main-menu").classList.toggle("menu-show");
-      });
-    });
-  </script>
-  </div>
-  </body>
+        window.addEventListener("DOMContentLoaded", () => {
+          document.querySelector(".menu-icon").addEventListener("click", () => {
+            document.querySelector(".main-menu").classList.toggle("menu-show");
+          });
+        });
+      </script>
+    </div>
+  </main>
+</body>
 
 </html>
